@@ -9,9 +9,9 @@ head:
     backgroundpic : "img/bg.jpg"
 
 Intro:
-    name: MICCALL
-    slogan: "Whatever is worth doing is worth doing well <br/> I'll think of you every step of the way"
-    HeadButton: MICCALL
+    name: LEEHOM
+    slogan: "弱小和无知，不是生存的障碍，傲慢才是"
+    HeadButton: LEEHOM
 
 Nav:
     Home_name: 主页
@@ -23,8 +23,8 @@ Nav:
     #Social
     # for more icons, please see http://fontawesome.io/icons/#brand
     icon:
-        github: https://github.com/miccall
-        500px: http://500px.com
+        github: https://github.com/millaCheung/millaCheung.github.io
+        weibo: https://weibo.com/u/2724564837/home
         
     pages:
         简历: 
@@ -39,8 +39,8 @@ Nav:
         #   link：“路径”
 
 MainFirst:
-    name: Miccall Metro
-    description: Technical  Artist  of  Games   
+    name: Leehom Blog
+    description: 一个菜鸟程序员的学习记录
     pic_url: /images/me.jpg
     goto_ulr: ""
 
@@ -103,7 +103,7 @@ busuanzi:
     enable: true
     all_site_uv: true
     post_pv: true
-    busuanzi_pure_mini_js: "https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"
+    busuanzi_pure_mini_js: "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
 
 
 # Mathjax 支持库 

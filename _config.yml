@@ -97,18 +97,20 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: miccall
+theme: hueman
 # RSS 订阅
-plugin:
-- hexo-generator-feed
+#plugin:
+#- hexo-generator-feed
 # Feed Atom
-  type: atom
-  path: atom.xml
-  limit: 20
+  #type: atom
+  #path: atom.xml
+  #limit: 20
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: 'git'
-  repo: https://github.com/millaCheung/millaCheung.github.io.git
+  repo:
+    github: https://github.com/millaCheung/millaCheung.github.io.git
+#    coding: https://e.coding.net/m-leehom/leehom/leehom.git
   branch: master
