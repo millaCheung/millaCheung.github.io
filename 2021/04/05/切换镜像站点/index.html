@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>切换镜像站点 | LeehomBlog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Node,npm" />
+    
+    <meta name="description" content="npm 切换镜像站点方法一：1. 更改npm配置文件：1$ npm config set registry URL  URL 即为需要设置的镜像站点地址，如淘宝镜像: http:&#x2F;&#x2F;registry.npm.taobao.org 方法二： 安装nrm 管理  1. 全局安装 nrm1$ npm install -g nrm  2. 查看镜像地址列表1$ nrm ls   如果报错信息为：throw">
+<meta property="og:type" content="article">
+<meta property="og:title" content="切换镜像站点">
+<meta property="og:url" content="http://www.milla.club/2021/04/05/%E5%88%87%E6%8D%A2%E9%95%9C%E5%83%8F%E7%AB%99%E7%82%B9/index.html">
+<meta property="og:site_name" content="LeehomBlog">
+<meta property="og:description" content="npm 切换镜像站点方法一：1. 更改npm配置文件：1$ npm config set registry URL  URL 即为需要设置的镜像站点地址，如淘宝镜像: http:&#x2F;&#x2F;registry.npm.taobao.org 方法二： 安装nrm 管理  1. 全局安装 nrm1$ npm install -g nrm  2. 查看镜像地址列表1$ nrm ls   如果报错信息为：throw">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210326122958109.png">
+<meta property="article:published_time" content="2021-04-05T09:19:34.000Z">
+<meta property="article:modified_time" content="2021-04-05T09:22:59.129Z">
+<meta property="article:author" content="milla">
+<meta property="article:tag" content="Node">
+<meta property="article:tag" content="npm">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210326122958109.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/logo.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="LeehomBlog" type="application/atom+xml">
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JavaScript/">JavaScript</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/JavaScript/">JavaScript</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="npm-切换镜像站点" class="article article-single article-type-npm" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        切换镜像站点
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/04/05/%E5%88%87%E6%8D%A2%E9%95%9C%E5%83%8F%E7%AB%99%E7%82%B9/" class="article-date">
+       <time datetime="2021-04-05T09:19:34.000Z" itemprop="datePublished">2021-04-05</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/04/05/%E5%88%87%E6%8D%A2%E9%95%9C%E5%83%8F%E7%AB%99%E7%82%B9/" class="article-date">
+     <time datetime="2021-04-05T09:22:59.129Z" itemprop="dateModified">2021-04-05</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Node/" rel="tag">Node</a>, <a class="tag-link-link" href="/tags/npm/" rel="tag">npm</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h1 id="npm-切换镜像站点"><a href="#npm-切换镜像站点" class="headerlink" title="npm 切换镜像站点"></a>npm 切换镜像站点</h1><h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><h3 id="1-更改npm配置文件："><a href="#1-更改npm配置文件：" class="headerlink" title="1. 更改npm配置文件："></a>1. 更改npm配置文件：</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> npm config <span class="built_in">set</span> registry URL</span><br></pre></td></tr></table></figure>
+
+<p>URL 即为需要设置的镜像站点地址，如淘宝镜像: <a target="_blank" rel="noopener" href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a></p>
+<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><blockquote>
+<p>安装nrm 管理</p>
+</blockquote>
+<h3 id="1-全局安装-nrm"><a href="#1-全局安装-nrm" class="headerlink" title="1. 全局安装 nrm"></a>1. 全局安装 nrm</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> npm install <span class="literal">-g</span> nrm</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-查看镜像地址列表"><a href="#2-查看镜像地址列表" class="headerlink" title="2. 查看镜像地址列表"></a>2. 查看镜像地址列表</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> nrm <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20210326122958109.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>如果报错信息为：throw new ERR_INVALID_ARG_TYPE(name, ‘string’, value);<br>处理方法为：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zm1640111308/article/details/115237957">链接</a></p>
+</blockquote>
+<h3 id="3-切换镜像地址"><a href="#3-切换镜像地址" class="headerlink" title="3. 切换镜像地址"></a>3. 切换镜像地址</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> nrm use company</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20210326123110368.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3ptMTY0MDExMTMwOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="4-自定义添加镜像地址："><a href="#4-自定义添加镜像地址：" class="headerlink" title="4. 自定义添加镜像地址："></a>4. 自定义添加镜像地址：</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> nrm add &lt;registry&gt; &lt;url&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20210326123552586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3ptMTY0MDExMTMwOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="5-删除镜像地址"><a href="#5-删除镜像地址" class="headerlink" title="5. 删除镜像地址"></a>5. 删除镜像地址</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> nrm <span class="built_in">del</span> company</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/2021032612371348.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3ptMTY0MDExMTMwOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="6-测试镜像地址响应速度"><a href="#6-测试镜像地址响应速度" class="headerlink" title="6. 测试镜像地址响应速度"></a>6. 测试镜像地址响应速度</h3><h4 id="6-1-测试单个源："><a href="#6-1-测试单个源：" class="headerlink" title="6.1. 测试单个源："></a>6.1. 测试单个源：</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> nrm test npm</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20210326123840587.png" alt="在这里插入图片描述"></p>
+<h4 id="6-2-测试全部源："><a href="#6-2-测试全部源：" class="headerlink" title="6.2. 测试全部源："></a>6.2. 测试全部源：</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> nrm test</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20210326124037798.png" alt="在这里插入图片描述"></p>
+<h3 id="7-访问源主页"><a href="#7-访问源主页" class="headerlink" title="7. 访问源主页"></a>7. 访问源主页</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> nrm home taobao</span><br></pre></td></tr></table></figure>
+<p>此命令会在浏览器中打开淘宝源的主页：<a target="_blank" rel="noopener" href="https://npm.taobao.org/">https://npm.taobao.org/</a><br>注：如果要查看自己添加的源的主页，那么在添加源的时候就要把主页带上：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> nrm add company http://npm.company.com/ http://npm.company.com/</span><br></pre></td></tr></table></figure>
+<p>如果添加源的时候没有写 home 信息，那么 nrm home 命令不会有效果。</p>
+<p><a target="_blank" rel="noopener" href="https://www.axihe.com/npm/nrm/home.html">参考页面链接</a></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://www.milla.club/2021/04/05/%E5%88%87%E6%8D%A2%E9%95%9C%E5%83%8F%E7%AB%99%E7%82%B9/" data-id="ckn4dyzlq000624t31w6jf0r5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "milla"
+        },
+        "headline": "切换镜像站点",
+        "image": "http://www.milla.clubhttps://img-blog.csdnimg.cn/20210326122958109.png",
+        "keywords": "Node npm",
+        "genre": "JavaScript",
+        "datePublished": "2021-04-05",
+        "dateCreated": "2021-04-05",
+        "dateModified": "2021-04-05",
+        "url": "http://www.milla.club/2021/04/05/切换镜像站点/",
+        "description": "npm 切换镜像站点方法一：1. 更改npm配置文件：1$ npm config set registry URL
+
+URL 即为需要设置的镜像站点地址，如淘宝镜像: http://registry.npm.taobao.org
+方法二：
+安装nrm 管理
+
+1. 全局安装 nrm1$ npm install -g nrm
+
+2. 查看镜像地址列表1$ nrm ls
+
+
+如果报错信息为：throw",
+        "wordCount": 213
+    }
+</script>
+
+</article>
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC81MzE2My8yOTYzOQ==" style="padding: 0 20px">
+    <script type="text/javascript">
+        (function(d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') { return; }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/millaCheung/millaCheung.github.io" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/04/24/%E5%8E%BB%E9%99%A4inline-block%E5%85%83%E7%B4%A0%E9%97%B4%E9%97%B4%E8%B7%9D%E7%9A%84%E8%8B%A5%E5%B9%B2%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">去除inline-block元素间间距的若干方法</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2021/04/05/%E5%88%87%E6%8D%A2%E9%95%9C%E5%83%8F%E7%AB%99%E7%82%B9/" class="title">切换镜像站点</a></p>
+                            <p class="item-date"><time datetime="2021-04-05T09:19:34.000Z" itemprop="datePublished">2021-04-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/04/24/%E5%8E%BB%E9%99%A4inline-block%E5%85%83%E7%B4%A0%E9%97%B4%E9%97%B4%E8%B7%9D%E7%9A%84%E8%8B%A5%E5%B9%B2%E6%96%B9%E6%B3%95/" class="title">去除inline-block元素间间距的若干方法</a></p>
+                            <p class="item-date"><time datetime="2020-04-24T09:11:54.000Z" itemprop="datePublished">2020-04-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/04/23/CSS%E5%AE%9E%E7%8E%B0%E5%8D%95%E8%A1%8C%E5%92%8C%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC%E6%BA%A2%E5%87%BA%EF%BC%8C%E7%9C%81%E7%95%A5%E5%8F%B7%E6%98%BE%E7%A4%BA/" class="title">CSS实现单行和多行文本溢出，省略号显示</a></p>
+                            <p class="item-date"><time datetime="2020-04-23T05:03:11.000Z" itemprop="datePublished">2020-04-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/04/23/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E8%8B%A5%E5%B9%B2%E6%96%B9%E6%B3%95/" class="title">清除浮动若干方法</a></p>
+                            <p class="item-date"><time datetime="2020-04-23T01:55:32.000Z" itemprop="datePublished">2020-04-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/04/22/Sass%E5%92%8CLess%E7%9A%84%E5%8C%BA%E5%88%AB/" class="title">Sass和Less的区别</a></p>
+                            <p class="item-date"><time datetime="2020-04-22T08:25:56.000Z" itemprop="datePublished">2020-04-22</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Less/" rel="tag">Less</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/" rel="tag">Sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEB/" rel="tag">WEB</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" rel="tag">网络协议</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 milla</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
