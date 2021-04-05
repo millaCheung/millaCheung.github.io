@@ -153,11 +153,30 @@
 
         <div id="main" >
             <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 ></h2></a>
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >JS对象操作属性的两种方式</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                
+                <h2 id="在-JS-对象中，调用属性一般有两种方法——点和中括号的方法。"><a href="#在-JS-对象中，调用属性一般有两种方法——点和中括号的方法。" class="headerlink" title="在 JS 对象中，调用属性一般有两种方法——点和中括号的方法。"></a>在 JS 对象中，调用属性一般有两种方法——点和中括号的方法。</h2><p><strong>1.使用点方法</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">&quot;cedric&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.name);  <span class="comment">// cedric</span></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p><strong>2.使用 [ ] 方法</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">&quot;cedric&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj[<span class="string">&quot;name&quot;</span>]);  <span class="comment">// cedric</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>点方法是在对象名后面跟上属性名，而中括号方法里的索引存放的与属性名字相同的字符串。</li>
+</ul>
+<h4 id="二者区别"><a href="#二者区别" class="headerlink" title="二者区别"></a>二者区别</h4><ol>
+<li>点方法后面跟的必须是一个指定的属性名称，而中括号方法里面可以是变量。例如</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">&quot;cedric&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> haha = <span class="string">&quot;name&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.haha);  <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(obj[haha]);  <span class="comment">// cedric</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>中括号方法里面的属性名可以是数字，而点方法后面的属性名不可以是数字</li>
+<li>当动态为对象添加属性时，必须使用 中括号 []， 不可以用点方法</li>
+</ol>
+
             </div>
 
             <!-- Post Comments -->
@@ -219,8 +238,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://www.milla.club/about/index.html';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://www.milla.club/about/index.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://www.milla.club/2019/10/20/JS%E5%AF%B9%E8%B1%A1%E6%93%8D%E4%BD%9C%E5%B1%9E%E6%80%A7%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://www.milla.club/2019/10/20/JS%E5%AF%B9%E8%B1%A1%E6%93%8D%E4%BD%9C%E5%B1%9E%E6%80%A7%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 

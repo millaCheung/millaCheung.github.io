@@ -153,11 +153,22 @@
 
         <div id="main" >
             <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 ></h2></a>
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >JS的短路运算符</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                
+                <h2 id="JS的短路运算符"><a href="#JS的短路运算符" class="headerlink" title="JS的短路运算符"></a>JS的短路运算符</h2><p>在JS函数中我们经常会使用到短路运算符，主要是逻辑与（&amp;&amp;） 和 逻辑或（||）。</p>
+<span id="more"></span>
+
+<h4 id="1-逻辑与-amp-amp-的运算方式"><a href="#1-逻辑与-amp-amp-的运算方式" class="headerlink" title="1. 逻辑与 &amp;&amp; 的运算方式"></a>1. 逻辑与 &amp;&amp; 的运算方式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">3</span> &amp;&amp; <span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">//返回的结果为 5</span></span><br></pre></td></tr></table></figure>
+<p>如果逻辑与运算符左边的值布尔转换后为true，那么返回右边的值（不管右边的值是真还是假）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">false</span> &amp;&amp; <span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">//返回的结果为 false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="literal">null</span> &amp;&amp; <span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">//返回的结果为 null</span></span><br></pre></td></tr></table></figure>
+<p>如果逻辑与运算符左边的值布尔转换后为false，那么返回左边的值，但是当逻辑与的左边为 null/NaN/undefined ，结果就会得到null/NaN/undefined。 </p>
+<h4 id="2-逻辑或-的运算方式"><a href="#2-逻辑或-的运算方式" class="headerlink" title="2. 逻辑或 || 的运算方式"></a>2. 逻辑或 || 的运算方式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">false</span> || <span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//返回的结果为 5</span></span><br></pre></td></tr></table></figure>
+<p>如果逻辑或运算符左边的值布尔转换后为false，那么返回右边的值（不管右边的值是真还是假）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">true</span> || <span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//返回的结果为 true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="literal">null</span> || <span class="literal">null</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//返回的结果为 null</span></span><br></pre></td></tr></table></figure>
+<p>如果逻辑或运算符左边的值布尔转换后为true，那么返回左边的值，如果两个操作数都是是null/NaN/undefined，返回null/NaN/undefined。</p>
+
             </div>
 
             <!-- Post Comments -->
@@ -219,8 +230,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://www.milla.club/about/index.html';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://www.milla.club/about/index.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://www.milla.club/2019/12/13/JS%E7%9A%84%E7%9F%AD%E8%B7%AF%E8%BF%90%E7%AE%97%E7%AC%A6/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://www.milla.club/2019/12/13/JS%E7%9A%84%E7%9F%AD%E8%B7%AF%E8%BF%90%E7%AE%97%E7%AC%A6/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
